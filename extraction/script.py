@@ -40,7 +40,7 @@ def get_yesterday_volume():
     return df, last_day.strftime('%Y-%m-%d')
 
 def upload_to_s3(df, date_str):
-    s3 = boto3.client('s3')
+    s3 = boto3.client('s3', region_name='eu-west-3') 
     key = f"{PREFIX}/{date_str}/volume.csv"
     csv_buffer = df.to_csv(index=False)
     s3.put_object(Bucket=BUCKET_NAME, Key=key, Body=csv_buffer)
