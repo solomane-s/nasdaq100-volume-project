@@ -2,17 +2,23 @@ name: Extract Nasdaq Volume Daily
 
 on:
   schedule:
-    # Exécution tous les jours à 22h00 UTC
     - cron: '0 22 * * *'
-  workflow_dispatch:   # Permet de le lancer manuellement
+  workflow_dispatch:
 
 jobs:
   extract-and-upload:
     runs-on: ubuntu-latest
-    timeout-minutes: 10  # sécurité
+    timeout-minutes: 10
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-3   # ⚠️ Mettez ici la région de votre bucket S3
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -23,8 +29,4 @@ jobs:
         run: pip install -r extraction/requirements.txt
 
       - name: Run extraction script
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          BUCKET_NAME: nasdaq100-volume-data
         run: python extraction/script.py
