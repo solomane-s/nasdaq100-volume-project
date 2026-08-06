@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw
+    database: NASDAQ_DB
+    schema: RAW
+    tables:
+      - name: RAW_NASDAQ_VOLUME
+        description: "Volume quotidien du Nasdaq 100 chargé depuis S3"

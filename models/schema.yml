@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_nasdaq_volume
+    columns:
+      - name: trading_date
+        tests:
+          - not_null
+          - unique
+      - name: volume
+        tests:
+          - not_null
+
+  - name: fact_daily_volume
+    columns:
+      - name: date_key
+        tests:
+          - not_null
+          - unique
