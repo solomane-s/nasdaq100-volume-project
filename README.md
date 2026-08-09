@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project builds a **100% cloud-based data pipeline** that tracks the **daily trading volume of the Nasdaq 100 index** (`^NDX`). The pipeline is fully automated, runs daily without any manual intervention, and follows a **star schema** architecture (Staging → Dimensions/Facts → Marts).
+A **100% cloud-based data pipeline** that tracks the **daily trading volume of the Nasdaq 100 index** (`^NDX`). The pipeline is fully automated, runs daily without any manual intervention.
 
 ### Technologies Used
 
