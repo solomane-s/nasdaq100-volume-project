@@ -130,7 +130,7 @@ nasdaq100-volume-project/
 
 ---
 
-## 📦 Final Deliverables
+## Final Deliverables
 
 - ✅ Daily CSV file in S3 (`raw/nasdaq100_volume/YYYY-MM-DD/volume.csv`)
 - ✅ Raw table `RAW.RAW_NASDAQ_VOLUME` in Snowflake
@@ -143,7 +143,7 @@ nasdaq100-volume-project/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -162,7 +162,7 @@ Detailed setup instructions are available in the project documentation:
 
 ---
 
-## 📝 Notes
+## Notes
 
 - All pipeline steps are **100% cloud-based**
 - The pipeline runs **automatically every day**
@@ -171,7 +171,7 @@ Detailed setup instructions are available in the project documentation:
 
 ---
 
-## 📄 License
+## License
 
 This project is for educational and personal use.
 
